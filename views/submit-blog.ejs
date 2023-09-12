@@ -1,0 +1,63 @@
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">Submit Your blog</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead">share your amazing blog with thousands of web developers across the world.</p>
+    </div>
+</div>
+
+
+<div class="row justify-content-center">
+
+    <% if(infoSubmitObj != ''){ %>
+        <div class="col-8 alert alert-success" role="alert">
+            <%= infoSubmitObj %>
+        </div>
+    <% } %>
+
+    <% if(infoErrorsObj != ''){ %>
+        <div class="col-8 alert alert-danger" role="alert">
+            <%= infoErrorsObj[0].message %>
+        </div>
+    <% } %>
+
+    <div class="col-8">
+
+        <form action="/submit-blog" enctype="multipart/form-data" method="POST">
+
+            <div class="row g-3">
+
+                <div class="col-12">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" name="title" class="form-control" id="title" required>
+                </div>
+                
+                <div class="col-12">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="description" id="description" class="form-control" cols="30" rows="6"></textarea>
+                </div>
+
+                <div class="col-12">
+                    <label for="category">Select Category</label>
+                    <select class="form-select form-control" name="category" aria-label="Category">
+                        <option selected>Select Category</option>
+                        <option value="Dancing">Dancing</option>
+                        <option value="sports">Sports</option>
+                        <option value="Education">Education</option>
+                        <option value="Music">Music</option>
+                    </select>
+                </div>
+
+                <div class="col-12">
+                    <label for="image">Image Upload</label>
+                    <input type="file" class="form-control" name="image" accept="image/*">
+                </div>
+
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Submit Blog</button>
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+</div>
